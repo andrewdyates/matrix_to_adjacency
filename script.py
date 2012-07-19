@@ -5,19 +5,14 @@ EXAMPLE USE:
   python $HOME/matrix_to_adjacency/script.py npyfname=$HOME/gse15745/gse15745_gpl8178_gpl6104_dcor.values.npy thresh=0.6
 """
 import sys
-import numpy as np
+from __init__ import *
 
-def main(npyfname, thresh, absvalue=False):
-  thresh = float(thresh)
-  M = np.load(npyfname)
-  if absvalue:
-    M = np.fabs(M)
-  for i in xrange(np.size(M,0)):
-    print " ".join([str(x) for x in np.where(M[i,:]>=thresh)[0]])
-
-    
-
-
+def main(**kwds):
+  empty_lines = []
+  for line in npy_to_mafia(empty_lines, **kwds):
+    print line
+  sys.stderr.write("\n".join(empty_lines))
+  
+      
 if __name__ == "__main__":
-  args = dict([s.split('=') for s in sys.argv[1:]])
-  main(**args)
+  main(**dict([s.split('=') for s in sys.argv[1:]]))
