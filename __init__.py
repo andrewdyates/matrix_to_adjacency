@@ -7,7 +7,7 @@ THRESHOLDS = {
 
 def npy_to_adjlist(npyfname=None, M=None, threshold=None, thresh_cmp="greater", absvalue=False):
   """Convert numpy matrix into row-wise adjacency list."""
-  assert bool(npyfname) != bool(M)
+  assert bool(npyfname is None) != bool(M is None)
   assert threshold is not None
   assert thresh_cmp in THRESHOLDS
   threshold = float(threshold)
