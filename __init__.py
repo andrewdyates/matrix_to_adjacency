@@ -5,13 +5,14 @@ THRESHOLDS = {
   "less": lambda x,t: x <= t,
 }
 
-def npy_to_adjlist(npyfname=None, threshold=None, thresh_cmp="greater", absvalue=False):
+def npy_to_adjlist(npyfname=None, M=None, threshold=None, thresh_cmp="greater", absvalue=False):
   """Convert numpy matrix into row-wise adjacency list."""
-  assert npyfname
+  assert bool(npyfname) != bool(M)
   assert threshold is not None
   assert thresh_cmp in THRESHOLDS
   threshold = float(threshold)
-  M = np.load(npyfname)
+  if M is None:
+    M = np.load(npyfname)
   if absvalue:
     M = np.fabs(M)
   for i in xrange(np.size(M,0)):
