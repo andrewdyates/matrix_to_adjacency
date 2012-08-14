@@ -1,7 +1,7 @@
 matrix_to_adjacency
 ===================
 
-Convert a numeric numpy matrix into an integer-enumerated, text-formatted adjacency list.
+Convert a numpy matrix into an integer-enumerated text adjacency list.
 
 ###Functions###
 _Imported as module._
@@ -15,4 +15,5 @@ _Imported as module._
 
 ###Example Use###
 _Stand-alone script. See script.py source code for use in code._
+
     python $HOME/matrix_to_adjacency/script.py npyfname=$HOME/mymatrix_pcc.npy threshold=0.4 
